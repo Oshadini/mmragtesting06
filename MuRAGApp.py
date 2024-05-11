@@ -421,7 +421,8 @@ if uploaded_file is not None:
     
     # Create RAG chain
     chain_multimodal_rag = multi_modal_rag_chain(retriever_multi_vector_img)
-    query = """Comparison of credit outstanding by SCBs and corporate bonds outstanding on growth for FY18 based on graph"""
+    query = """Comparison of corporate bond yields with bank lending rates for AAA and AA for FY17"""
+    
     docs = retriever_multi_vector_img.get_relevant_documents(query, limit=1)
     st.write(docs)
     markdown_text = chain_multimodal_rag.invoke(query)
